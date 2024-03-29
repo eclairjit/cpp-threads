@@ -45,8 +45,8 @@ int32_t main() {
   otherwise, they'll continue running parallely and we'll get no output
   */
   
-  t1.join();
-  t2.join();
+  if(t1.joinable()) t1.join();
+  if(t2.joinable()) t2.join();
   
   auto stopTime = chrono::high_resolution_clock::now();
   
